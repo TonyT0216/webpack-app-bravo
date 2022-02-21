@@ -2,5 +2,6 @@ dist/*
 node_modules/*
 
 *.editorconfig
+*.env
 *.eslintrc
 *.prettierrc
