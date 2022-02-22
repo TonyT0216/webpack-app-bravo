@@ -10,7 +10,27 @@ const options = {
 };
 
 module.exports = {
+  mode: 'development',
   entry: [paths.src, 'webpack-plugin-serve/client'],
+  module: {
+    rules: [
+      {
+        test: /\.(sass|scss|css)$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: { sourceMap: true, importLoaders: 1, modules: false },
+          },
+          {
+            loader: 'postcss-loader',
+            options: { postcssOptions: { plugins: [require('tailwindcss')()] }, sourceMap: true },
+          },
+          { loader: 'sass-loader', options: { sourceMap: true } },
+        ],
+      },
+    ],
+  },
   plugins: [new Serve(options)],
   watch: true,
 };

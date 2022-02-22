@@ -1,11 +1,10 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { mode } = require('webpack-nano/argv');
 const { merge } = require('webpack-merge');
-const paths = require('./paths');
 
 const developmentConfiguration = require('./webpack.dev');
+const paths = require('./paths');
 const productionConfiguration = require('./webpack.prod');
-
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const commonConfiguration = {
   entry: {
