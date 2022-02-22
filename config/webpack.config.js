@@ -1,12 +1,18 @@
 const { mode } = require('webpack-nano/argv');
+const { merge } = require('webpack-merge');
 const paths = require('./paths');
 
+const developmentConfiguration = require('./webpack.dev');
+const productionConfiguration = require('./webpack.prod');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = {
-  entry: [paths.src + '/index.js'],
+const commonConfiguration = {
+  entry: {
+    index: [paths.src + '/index.js'],
+  },
   mode,
   output: {
+    clean: true,
     filename: '[name].bundle.js',
     path: paths.build,
     publicPath: '/',
@@ -35,3 +41,16 @@ module.exports = {
     },
   },
 };
+
+const getConfig = (mode) => {
+  switch (mode) {
+    case 'production':
+      return merge(commonConfiguration, productionConfiguration, { mode });
+    case 'development':
+      return merge(commonConfiguration, developmentConfiguration, { mode });
+    default:
+      throw new Error(`Trying to use an unknown mode, ${mode}`);
+  }
+};
+
+module.exports = getConfig(mode);
