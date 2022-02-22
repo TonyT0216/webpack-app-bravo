@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build:production": "wp --mode production --config config/webpack.config.js",
-    "serve": "http-server dist/"
+    "serve": "http-server dist/",
+    "test-server-error": "wp --mode maintenance --config config/webpack.config.js"
   },
   "keywords": [],
   "author": "",

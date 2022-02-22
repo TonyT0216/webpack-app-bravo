@@ -4,6 +4,7 @@ const paths = require('./paths');
 
 const developmentConfiguration = require('./webpack.dev');
 const productionConfiguration = require('./webpack.prod');
+
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const commonConfiguration = {
