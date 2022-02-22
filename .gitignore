@@ -2,6 +2,7 @@
 dist/*
 node_modules/*
 
+*.babelrc
 *.editorconfig
 *.env
 *.eslintrc
