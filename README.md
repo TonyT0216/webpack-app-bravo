@@ -29,6 +29,8 @@ To run the application in production mode: `npm run build:production`.
 To clean up the `dist/` subdirectory: `npm run clean`.  
 To serve the application via http-server module: `npm run serve`.  
 
+
 ### Works Cited
+
 Tania Rascia for giving me the idea to serve the application configuration via environment.  
 SurviveJS for getting me through the more complex parts of creating a webpack application.
